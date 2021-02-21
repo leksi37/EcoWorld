@@ -26,6 +26,7 @@ namespace EcoFriendly.Controllers
             if (ModelState.IsValid)
             {
                 _dbContext.Organizations.Add(organization);
+                _dbContext.SaveChanges();
                 return View("../Login/Index");
             }
             else

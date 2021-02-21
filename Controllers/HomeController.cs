@@ -12,17 +12,16 @@ namespace EcoFriendly.Controllers
     public class HomeController : Controller
     {
         private readonly EcoDbContext _dbContext;
-        private Organization Organization;
+        private Organization Org;
 
-        public HomeController(Organization organization, EcoDbContext dbContext)
+        public HomeController(EcoDbContext dbContext)
         {
-            Organization = organization;
             _dbContext = dbContext;
         }
 
         public IActionResult Index()
-        {
-            return View();
+        {   
+            return View("Index", Org);
         }
 
         public IActionResult Privacy()

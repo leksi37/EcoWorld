@@ -25,7 +25,7 @@ namespace EcoFriendly.Controllers
         {
             if (ModelState.IsValid)
             {
-                IQueryable<Organization> orgQueryable = _dbContext.Organizations.Where(org => org.Email == credentials.Email && org.Password == credentials.Password);
+                var orgQueryable = _dbContext.Organizations.Where(org => org.Email == credentials.Email && org.Password == credentials.Password);
                 Organization org = orgQueryable.FirstOrDefault();
                 if (org == null)
                 {
